@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 
 
 class SampleETL:
-    input_file = "season-1819.csv"
+    input_file = "https://datahub.io/sports-data/english-premier-league/r/season-1819.csv"
     output_file = "/code/man_united_games.csv"
 
     spark = SparkSession.builder.getOrCreate()
