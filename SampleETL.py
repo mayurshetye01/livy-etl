@@ -10,7 +10,7 @@ class SampleETL:
     # Create the DataFrame
     df = spark.read.format('csv').option("header", "true").load(input_file)
 
-    filtered_df = df.filter(df['HomeTeam'] == 'Man United' or df['AwayTeam'] == 'Man United')
+    filtered_df = df.filter(df['HomeTeam'] == 'Man United' | df['AwayTeam'] == 'Man United')
     filtered_df.show()
 
     filtered_df.createOrReplaceTempView('man_utd_games')
