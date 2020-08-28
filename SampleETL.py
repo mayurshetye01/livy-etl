@@ -16,7 +16,7 @@ class SampleETL:
 
     result_df = spark.sql('select '
                                'HomeTeam as home, AwayTeam as away, '
-                               'FTHG as goals_for, FTAG as goals_against'
+                               'FTHG as goals_for, FTAG as goals_against '
                                'from man_utd_games')
     result_df.write.csv(output_file)
 
