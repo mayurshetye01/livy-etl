@@ -6,7 +6,7 @@ class SampleETL:
     output_file = "/code/man_united_games.csv"
 
     # Create the DataFrame
-    df = sc.read.csv(input_file)
+    df = context.sc.read.csv(input_file)
 
     filtered_df = df.filter(df['HomeTeam'] == 'Man United' or df['AwayTeam'] == 'Man United')
     filtered_df.show()
