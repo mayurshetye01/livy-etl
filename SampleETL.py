@@ -14,10 +14,7 @@ class SampleETL:
 
     filtered_df.createOrReplaceTempView('man_utd_games')
 
-    result_df = spark.sql('select '
-                               'HomeTeam as home, AwayTeam as away, '
-                               'FTHG as goals_for, FTAG as goals_against '
-                               'from man_utd_games')
+    result_df = spark.sql('''SELECT HomeTeam as home, AwayTeam as away, FTHG as goals_for, FTAG as goals_against from man_utd_games''')
     result_df.write.csv(output_file)
 
     result_df.show()
