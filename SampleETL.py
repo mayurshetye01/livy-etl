@@ -2,12 +2,12 @@ from pyspark.sql import SparkSession
 
 
 class SampleETL:
-    input_file_url = "https://datahub.io/sports-data/english-premier-league/r/season-1819.csv"
+    input_file = "/tmp/season-1819.csv"
     output_file = "/code/man_united_games.csv"
 
     spark = SparkSession.builder.getOrCreate()
     # Create the DataFrame
-    df = spark.read.format('csv').option("header", "true").load(input_file_url)
+    df = spark.read.format('csv').option("header", "true").load(input_file)
 
     filtered_df = df.filter(df['HomeTeam'] == 'Man United' or df['AwayTeam'] == 'Man United')
     filtered_df.show()
