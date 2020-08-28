@@ -2,7 +2,8 @@ from pyspark.sql import SparkSession
 
 
 class SampleETL:
-    input_file = "/tmp/season-1819.csv"
+    # TODO-> Use file from livy 'files' option
+    input_file = "/season-1819.csv"
     output_file = "/code/man_united_games.csv"
 
     spark = SparkSession.builder.getOrCreate()
