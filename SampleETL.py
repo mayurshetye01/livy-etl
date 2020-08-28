@@ -10,4 +10,17 @@ class SampleETL:
     # Create the DataFrame
     df = spark.read.format('csv').option("header", "true").load(input_file)
 
-    df.show()
+    filtered_df = df.filter(df['HomeTeam'] == 'Man United')
+    filtered_df.show()
+
+    filtered_df.createOrReplaceTempView('man_utd_games')
+
+    result_df = spark.sql('select '
+                               'HomeTeam as home, AwayTeam as away, '
+                               'FTHG as goals_for, FTAG as goals_against'
+                               'from man_utd_games')
+    result_df.write.csv(output_file)
+
+    print('Data exported successfully')
+
+    result_df.show()
