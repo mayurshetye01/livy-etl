@@ -7,8 +7,11 @@ class SampleETL:
     output_file = "/man_united_games.csv"
 
     spark = SparkSession.builder.getOrCreate()
+
     # Create the DataFrame
-    df = spark.read.format('csv').option("header", "true").load(input_file)
+    df = spark.read.option("header", "true").csv(input_file)
+
+    # TODO -> Try RDD transformations
 
     filtered_df = df.filter((df['HomeTeam'] == 'Man United') | (df['AwayTeam'] == 'Man United'))
 
