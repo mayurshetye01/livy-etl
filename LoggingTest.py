@@ -3,7 +3,7 @@ from nc.datahub.nc_logging import NCDataHubLogging
 
 from pyspark.sql import SparkSession
 
-# For testing
+# For comparison
 spark = SparkSession.builder.getOrCreate()
 
 def test_with_logging():
