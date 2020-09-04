@@ -1,7 +1,7 @@
 from data_hub_logging import DataHubLogger
 
 # For comparison with Spark logs
-# spark = SparkSession.builder.getOrCreate()
+spark = SparkSession.builder.getOrCreate()
 
 
 logger = DataHubLogger(__name__)
