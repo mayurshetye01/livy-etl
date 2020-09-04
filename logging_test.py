@@ -1,4 +1,5 @@
 from data_hub_logging import DataHubLogger
+from pyspark.sql import SparkSession
 
 # For comparison with Spark logs
 spark = SparkSession.builder.getOrCreate()
