@@ -1,4 +1,4 @@
-from nc.datahub.logging.data_hub_logging import DataHubLogger
+from data_hub_logging import DataHubLogger
 
 # For comparison with Spark logs
 # spark = SparkSession.builder.getOrCreate()
