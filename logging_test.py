@@ -1,14 +1,13 @@
-from nc.datahub.logging.data_hub_logging import DataHubLogging
+from nc.datahub.logging.data_hub_logging import DataHubLogger
 
 # For comparison with Spark logs
 # spark = SparkSession.builder.getOrCreate()
 
 
-logging = DataHubLogging()
-logger = logging.get_logger(__name__)
+logger = DataHubLogger(__name__)
 
 
-@logging.dh_log
+@logger.dh_log
 def test_logging():
     logger.info('Function log')
     logger.warning('Function log')
